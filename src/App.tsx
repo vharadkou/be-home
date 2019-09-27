@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useMemo } from 'react';
+import { Switch, Route, Redirect, Router } from 'react-router';
+import { Auth } from 'scenes/auth';
+import { Guides } from 'scenes/guides';
+import ProtectedRoute from 'ProtectedRoute';
+import { useStore } from 'stores';
+import { createBrowserHistory } from 'history';
+import { syncHistoryWithStore } from 'mobx-react-router';
+import { observer } from 'mobx-react-lite';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const browserHistory = createBrowserHistory();
+
+const App = observer(() => {
+  const { authStore, routerStore } = useStore();
+
+  useEffect(() => {
+    authStore.readSession();
+
+    if (authStore.isLoggedIn) {
+      routerStore.push('/guides');
+    }
+  }, [authStore, routerStore]);
+
+  const history = useMemo(
+    () => syncHistoryWithStore(browserHistory, routerStore),
+    [routerStore],
   );
-}
+
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/" render={() => <Redirect to={'/auth'} />} />
+        <Route exact path="/auth" component={Auth} />
+        <ProtectedRoute
+          isLoggedIn={authStore.isLoggedIn}
+          path="/guides"
+          component={Guides}
+          exact
+          public={false}
+        />
+        <Redirect to={'/'} />
+      </Switch>
+    </Router>
+  );
+});
 
 export default App;
