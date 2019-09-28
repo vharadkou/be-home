@@ -30,7 +30,7 @@ export class UiStore {
             {
               id: 2,
               fullName: "Дмитрий Панковский",
-              description: "Привет! Hi! Aloha! Я покажу вам лучшие маршруты моего города!",
+              description: "Привет! Hi! Aloha! Я покажу вам лучшие места города!",
               price: 0,
               rate: 5,
               reviewCount: 10,
@@ -39,7 +39,7 @@ export class UiStore {
             {
               id: 1,
               fullName: "Алеся Костюшко",
-              description: "Я активный турист. Предлагаю вам сходить со мной в сплав по Ресте.",
+              description: "Я активный турист. Предлагаю вам сплав по Ресте.",
               price: 0,
               rate: 4,
               reviewCount: 6,
