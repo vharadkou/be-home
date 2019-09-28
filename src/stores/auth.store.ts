@@ -35,6 +35,10 @@ export class AuthStore {
 
   @action public login = async (login: any, password: any) => {
     try {
+      await firebase
+        .auth()
+        .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+
       const res = await firebase
         .auth()
         .signInWithEmailAndPassword(login, password);
@@ -53,6 +57,10 @@ export class AuthStore {
   @action public loginGmail = async () => {
     await firebase
       .auth()
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+
+    await firebase
+      .auth()
       .signInWithPopup(this.providerGmail)
       .then(res => {
         let user = res.user;
@@ -67,6 +75,10 @@ export class AuthStore {
   };
 
   @action public loginFB = async () => {
+    await firebase
+      .auth()
+      .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+
     await firebase
       .auth()
       .signInWithPopup(this.providerFB)
