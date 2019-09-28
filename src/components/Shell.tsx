@@ -21,16 +21,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const Shell = observer(({ children }) => {
-  const { authStore } = useStore();
+  const { authStore, routerStore } = useStore();
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
       {authStore.isLoggedIn ? (
         <>
-          <TopBar />
+          {routerStore.location.pathname !== '/profile' && <TopBar />}
           <Container className={classes.content} fixed>
-            <div className={classes.toolbar} />
+            {routerStore.location.pathname !== '/profile' && (
+              <div className={classes.toolbar} />
+            )}
             {children}
             <div className={classes.toolbar} />
           </Container>
