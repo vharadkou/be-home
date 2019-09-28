@@ -16,10 +16,8 @@ const App = observer(() => {
   useEffect(() => {
     authStore.readSession();
 
-    if (authStore.isLoggedIn) {
-      routerStore.push('/guides');
-    }
-  }, [authStore, routerStore]);
+
+  }, [authStore]);
 
   const history = useMemo(
     () => syncHistoryWithStore(browserHistory, routerStore),
