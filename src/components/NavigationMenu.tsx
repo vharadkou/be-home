@@ -2,9 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PersonIcon from '@material-ui/icons/Person';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import EventIcon from '@material-ui/icons/Event';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import AppBar from '@material-ui/core/AppBar';
 
@@ -47,19 +47,19 @@ export function NavigationMenu() {
           className={classes.item}
           label="Закладки"
           value="bookmarks"
-          icon={<FavoriteIcon />}
+          icon={<BookmarkIcon />}
         />
         <BottomNavigationAction
           className={classes.item}
           label="События"
           value="events"
-          icon={<LocationOnIcon />}
+          icon={<EventIcon />}
         />
         <BottomNavigationAction
           className={classes.item}
           label="Профиль"
           value="profile"
-          icon={<FolderIcon />}
+          icon={<PersonIcon />}
         />
       </BottomNavigation>
     </AppBar>
