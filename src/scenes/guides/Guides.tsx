@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { observer } from 'mobx-react-lite';
-import { useStore } from 'stores';
+import React, { useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useStore } from "stores";
+import MasterPage from "components/MasterPage";
 
 export const Guides = observer(() => {
   const { guidesStore } = useStore();
@@ -9,5 +10,5 @@ export const Guides = observer(() => {
     guidesStore.loadGuides();
   }, [guidesStore]);
 
-  return <div>Guides Page</div>;
+  return <MasterPage>Guids page</MasterPage>;
 });
