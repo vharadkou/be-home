@@ -12,6 +12,10 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import clsx from 'clsx';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import SendIcon from '@material-ui/icons/Send';
+import Typography from '@material-ui/core/Typography';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -30,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
       lineHeight: '24px',
     },
     smallText: {
-      fontSize: '14px',
+      // fontSize: '14px',
     },
   }),
 );
@@ -70,19 +74,21 @@ const LongMenu = () => {
         PaperProps={{
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,
-            width: 200,
+            width: 260,
           },
         }}
       >
         <MenuItem onClick={handleClose}>
-          <span className={clsx(classes.text, classes.smallText)}>
-            Отправить сообщение
-          </span>
+          <ListItemIcon style={{ color: '#FA526C' }}>
+            <SendIcon />
+          </ListItemIcon>
+          <Typography variant="inherit">Отправить сообщение</Typography>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <span className={clsx(classes.text, classes.smallText)}>
-            Добавить в закладки
-          </span>
+          <ListItemIcon style={{ color: '#512DA8' }}>
+            <BookmarkIcon />
+          </ListItemIcon>
+          <Typography variant="inherit">Добавить в закладки</Typography>
         </MenuItem>
       </Menu>
     </>

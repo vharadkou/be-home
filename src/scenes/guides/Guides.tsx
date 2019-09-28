@@ -20,7 +20,7 @@ export const Guides = observer(() => {
   return (
     <Box className={classes.root}>
       {uiStore.guides.map(g => (
-        <div key={g.id} style={{ margin: '0 16px 12px 16px' }}>
+        <div key={g.id} style={{ margin: '0 0 12px 0' }}>
           <GuidCard {...g}></GuidCard>
         </div>
       ))}
