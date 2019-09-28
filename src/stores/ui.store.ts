@@ -3,7 +3,7 @@ import { action, configure, observable } from 'mobx';
 configure({ enforceActions: 'always' });
 
 export class UiStore {
-  @observable public isFilterOpen: boolean = false;
+  @observable public isFilterOpen: boolean = true;
 
   @action public openFilter = () => {
     this.isFilterOpen = true;

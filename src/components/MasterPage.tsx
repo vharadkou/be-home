@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { observer } from "mobx-react-lite";
-import NavigationMenu from "components/NavigationMenu";
+import React from 'react';
+import { observer } from 'mobx-react-lite';
+import NavigationMenu from 'components/NavigationMenu';
 
 const Guides = observer(({ children }) => {
   return (

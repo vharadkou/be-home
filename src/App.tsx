@@ -10,7 +10,9 @@ import { observer } from 'mobx-react-lite';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+  palette: { primary: { main: '#673AB7' } },
+});
 
 const browserHistory = createBrowserHistory();
 
