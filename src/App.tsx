@@ -2,6 +2,7 @@ import React, { useEffect, useMemo } from 'react';
 import { Switch, Route, Redirect, Router } from 'react-router';
 import { Auth } from 'scenes/auth';
 import { Guides } from 'scenes/guides';
+import { Profile } from 'scenes/profile';
 import ProtectedRoute from 'ProtectedRoute';
 import { useStore } from 'stores';
 import { createBrowserHistory } from 'history';
@@ -48,6 +49,13 @@ const App = observer(() => {
               isLoggedIn={authStore.isLoggedIn}
               path="/events"
               component={Events}
+              exact
+              public={false}
+            />
+            <ProtectedRoute
+              isLoggedIn={authStore.isLoggedIn}
+              path="/profile"
+              component={Profile}
               exact
               public={false}
             />

@@ -38,7 +38,10 @@ export function NavigationMenu() {
   const handleEventsClick = () => {
     routerStore.push('/events');
   };
-
+  
+  const handleProfileClick = () => {
+    routerStore.push('/profile');
+  };
   return (
     <AppBar className={classes.appBar} position="fixed">
       <BottomNavigation
@@ -68,6 +71,7 @@ export function NavigationMenu() {
           icon={<EventIcon />}
         />
         <BottomNavigationAction
+          onClick={handleProfileClick}
           className={classes.item}
           label="Профиль"
           value="profile"
