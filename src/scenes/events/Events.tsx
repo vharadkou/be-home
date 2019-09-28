@@ -53,7 +53,7 @@ export const Events = observer(() => {
   };
 
   return (
-    <Box>
+    <Box className={classes.root}>
       {events.map((event, index) => (
         <Card className={classes.card}>
           <CardActionArea>

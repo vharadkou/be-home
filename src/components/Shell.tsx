@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     height: '100%',
-    backgroundColor: '#EEEEEE',
   },
   content: {
     flexGrow: 1,
