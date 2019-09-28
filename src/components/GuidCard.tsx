@@ -101,22 +101,21 @@ export default function RecipeReviewCard({
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia className={classes.media} image={imgSrc} title="" />
-        <CardHeader
+      </CardActionArea>
+      <CardHeader
           action={<LongMenu />}
           title={<span className={classes.text}>{fullName}</span>}
           subheader={
             <span className={clsx(classes.text, classes.smallText)}>
               «{description}»
-            </span>
+          </span>
           }
           disableTypography={false}
         />
-      </CardActionArea>
       <CardContent>
         {/* <Typography variant="body2" color="textSecondary" component="p">
           {description}
         </Typography> */}
-        rate to be here
       </CardContent>
     </Card>
   );
