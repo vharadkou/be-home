@@ -53,8 +53,6 @@ const LongMenu = () => {
     setAnchorEl(null);
   };
 
-  const classes = useStyles();
-
   return (
     <>
       <IconButton
