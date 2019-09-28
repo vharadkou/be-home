@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const TopBar = () => {
   const classes = useStyles();
-  const { uiStore, authStore } = useStore();
+  const { uiStore } = useStore();
 
   return (
     <AppBar position="fixed">
