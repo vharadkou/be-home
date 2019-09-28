@@ -10,6 +10,7 @@ import { observer } from 'mobx-react-lite';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { Shell } from 'components/Shell';
+import { Events } from 'scenes/events';
 
 const theme = createMuiTheme({
   palette: { primary: { main: '#673AB7' } },
@@ -22,8 +23,6 @@ const App = observer(() => {
 
   useEffect(() => {
     authStore.readSession();
-
-
   }, [authStore]);
 
   const history = useMemo(
@@ -42,6 +41,13 @@ const App = observer(() => {
               isLoggedIn={authStore.isLoggedIn}
               path="/guides"
               component={Guides}
+              exact
+              public={false}
+            />
+            <ProtectedRoute
+              isLoggedIn={authStore.isLoggedIn}
+              path="/events"
+              component={Events}
               exact
               public={false}
             />
