@@ -57,7 +57,7 @@ export const TopBar = () => {
         <IconButton
           aria-label="show 4 new mails"
           color="inherit"
-          onClick={authStore.logout}
+          // onClick={authStore.logout}
         >
           <MailIcon />
         </IconButton>
