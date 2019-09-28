@@ -10,7 +10,7 @@ export class AuthStore {
   constructor(private routerStore: any) {}
 
   @action public readSession = () => {
-    const user = window.sessionStorage.getItem(
+    const user = window.localStorage.getItem(
       `firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`,
     );
 
@@ -37,7 +37,7 @@ export class AuthStore {
     try {
       await firebase
         .auth()
-        .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+        .setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
       const res = await firebase
         .auth()
@@ -55,9 +55,7 @@ export class AuthStore {
   providerFB = new firebase.auth.FacebookAuthProvider();
 
   @action public loginGmail = async () => {
-    await firebase
-      .auth()
-      .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+    await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
     await firebase
       .auth()
@@ -75,9 +73,7 @@ export class AuthStore {
   };
 
   @action public loginFB = async () => {
-    await firebase
-      .auth()
-      .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+    await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
     await firebase
       .auth()

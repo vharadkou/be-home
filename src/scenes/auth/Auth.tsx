@@ -54,6 +54,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '14px',
     fontWeight: 'normal',
     lineHeight: '24px',
+    textAlign: 'center',
   },
   imgWelcome: {
     width: '117px',
@@ -104,7 +105,7 @@ export const Auth = observer(() => {
             Добро пожаловать
           </Typography>
           <Typography className={classes.textFind}>
-            Поиск гида в путешествиях
+            Узнавайте новое о городе с людьми, которые живут в нем
           </Typography>
           <FormControl className={classes.form}>
             <TextField
