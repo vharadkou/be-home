@@ -28,6 +28,7 @@ export class UiStore {
         runInAction(() => {
           this.guides = [
             {
+              id: 1,
               fullName: "Алеся Костюшко",
               description: "Покажу вам все свои дырки",
               price: 0,
@@ -36,6 +37,7 @@ export class UiStore {
               imgSrc: AliceImage,
             },
             {
+              id: 2,
               fullName: "Дмитрий Панковский",
               description: "Вы останитесь довольны мной",
               price: 0,

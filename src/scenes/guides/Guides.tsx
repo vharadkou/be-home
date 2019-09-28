@@ -14,7 +14,7 @@ export const Guides = observer(() => {
   return (
     <MasterPage>
       {uiStore.guides.map(g => (
-        <div style={{ margin: "0 16px 12px 16px" }}>
+        <div key={g.id} style={{ margin: "0 16px 12px 16px" }}>
           <GuidCard {...g}></GuidCard>
         </div>
       ))}
