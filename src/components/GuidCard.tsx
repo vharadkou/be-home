@@ -9,6 +9,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import StarIcon from "@material-ui/icons/Star";
+import StarBorderIcon from "@material-ui/icons/StarBorder";
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -87,6 +89,22 @@ const LongMenu = () => {
   );
 };
 
+const rateView = rate => {
+  const stars: Array<any> = [];
+  for (let i = 0; i < 5; i++) {
+    stars.push(
+      i < rate ? (
+        <StarIcon style={{ color: "#FDBA62", width: "16px", height: "16px" }} />
+      ) : (
+        <StarBorderIcon
+          style={{ color: "#BDBDBD", width: "16px", height: "16px" }}
+        />
+      )
+    );
+  }
+  return stars.map(star => star);
+};
+
 export default function RecipeReviewCard({
   fullName,
   description,
@@ -103,19 +121,25 @@ export default function RecipeReviewCard({
         <CardMedia className={classes.media} image={imgSrc} title="" />
       </CardActionArea>
       <CardHeader
-          action={<LongMenu />}
-          title={<span className={classes.text}>{fullName}</span>}
-          subheader={
-            <span className={clsx(classes.text, classes.smallText)}>
-              «{description}»
+        style={{ paddingBottom: "0px", marginBottom: "0px" }}
+        action={<LongMenu />}
+        title={<span className={classes.text}>{fullName}</span>}
+        subheader={
+          <span className={clsx(classes.text, classes.smallText)}>
+            «{description}»
           </span>
-          }
-          disableTypography={false}
-        />
-      <CardContent>
-        {/* <Typography variant="body2" color="textSecondary" component="p">
-          {description}
-        </Typography> */}
+        }
+        disableTypography={false}
+      />
+      <CardContent
+        style={{
+          paddingTop: "0px",
+          paddingBottom: "0px",
+          marginTop: "4px",
+          marginBottom: "4px"
+        }}
+      >
+        {rateView(rate)}
       </CardContent>
     </Card>
   );

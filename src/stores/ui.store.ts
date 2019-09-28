@@ -1,9 +1,9 @@
-import { action, configure, observable, runInAction } from 'mobx';
+import { action, configure, observable, runInAction } from "mobx";
 
-import AliceImage from 'images/guide/Alice.jpg';
-import DmitryImage from 'images/guide/Dmitry.jpg';
+import AliceImage from "images/guide/Alice.jpg";
+import DmitryImage from "images/guide/Dmitry.jpg";
 
-configure({ enforceActions: 'always' });
+configure({ enforceActions: "always" });
 
 export class UiStore {
   @observable public isFilterOpen: boolean = false;
@@ -28,27 +28,27 @@ export class UiStore {
         runInAction(() => {
           this.guides = [
             {
-              id: 1,
-              fullName: 'Алеся Костюшко',
-              description: 'Покажу вам все свои дырки',
-              price: 0,
-              rate: 4,
-              reviewCount: 6,
-              imgSrc: AliceImage,
-            },
-            {
               id: 2,
-              fullName: 'Дмитрий Панковский',
-              description: 'Вы останитесь довольны мной',
+              fullName: "Дмитрий Панковский",
+              description: "Привет! Hi! Aloha! Я покажу вам лучшие маршруты моего города!",
               price: 0,
               rate: 5,
               reviewCount: 10,
-              imgSrc: DmitryImage,
+              imgSrc: DmitryImage
             },
+            {
+              id: 1,
+              fullName: "Алеся Костюшко",
+              description: "Я активный турист. Предлагаю вам сходить со мной в сплав по Ресте.",
+              price: 0,
+              rate: 4,
+              reviewCount: 6,
+              imgSrc: AliceImage
+            }
           ];
           this.isMasterPageLoading = false;
         }),
-      2000,
+      2000
     );
   };
   // #endregion guieds
