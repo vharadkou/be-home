@@ -7,6 +7,10 @@ configure({ enforceActions: 'always' });
 export class AuthStore {
   @observable public isLoggedIn: boolean = false;
 
+  constructor(private routerStore:any){
+
+  }
+
   @action public readSession = () => {
     const user = window.sessionStorage.getItem(
       `firebase:authUser:${firebaseConfig.apiKey}:[DEFAULT]`,
@@ -14,25 +18,71 @@ export class AuthStore {
 
     if (user) {
       this.isLoggedIn = true;
+      this.routerStore.push('/guides');
     }
+    
   };
+  @action public register = async (login: any, password: any) => {
+    try {
+      const reg = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(login, password)
+      if (reg.user) {
+        runInAction(() => (this.isLoggedIn = true));
+        this.login(login, password)
+      }
+    } catch (err) {
 
-  @action public login = async () => {
-    await firebase
-      .auth()
-      .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+      console.log(err)
 
+    }
+  }
+
+  @action public login = async (login: any, password: any) => {
     try {
       const res = await firebase
         .auth()
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        .signInWithEmailAndPassword(login, password)
       if (res.user) {
         runInAction(() => (this.isLoggedIn = true));
+        this.routerStore.push('/guides');
       }
     } catch (err) {
-      console.error(err);
+      this.register(login, password)
     }
   };
+
+  providerGmail = new firebase.auth.GoogleAuthProvider();
+  providerFB = new firebase.auth.FacebookAuthProvider();
+
+  @action public loginGmail = async () => {
+      const res = await firebase
+        .auth()
+        .signInWithPopup(this.providerGmail).then((res)=> {
+          let user = res.user;
+          if (user) {
+            runInAction(() => (this.isLoggedIn = true));
+            this.routerStore.push('/guides');
+          }
+        }).catch(err=> {
+          console.log(err)
+        })
+  };
+
+  @action public loginFB = async () => {
+    const res = await firebase
+      .auth()
+      .signInWithPopup(this.providerFB).then((res)=> {
+        let user = res.user;
+        if (res.user) {
+          runInAction(() => (this.isLoggedIn = true));
+          this.routerStore.push('/guides');
+        }
+      }).catch(err=> {
+        console.log(err)
+      })
+};
+
 
   @action public logout = async () => {
     await firebase.auth().signOut();
