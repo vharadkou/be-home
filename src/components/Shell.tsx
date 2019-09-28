@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { TopBar } from './TopBar';
 import { NavigationMenu } from './NavigationMenu';

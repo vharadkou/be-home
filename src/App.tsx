@@ -9,8 +9,6 @@ import { syncHistoryWithStore } from 'mobx-react-router';
 import { observer } from 'mobx-react-lite';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { TopBar } from 'components/TopBar';
-import { NavigationMenu } from 'components/NavigationMenu';
 import { Shell } from 'components/Shell';
 
 const theme = createMuiTheme({
