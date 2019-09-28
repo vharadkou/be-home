@@ -9,7 +9,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    width: '100%',
   },
 });
 

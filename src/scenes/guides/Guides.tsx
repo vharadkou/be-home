@@ -2,13 +2,22 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "stores";
 import MasterPage from "components/MasterPage";
+import GuidCard from "components/GuidCard";
 
 export const Guides = observer(() => {
-  const { guidesStore } = useStore();
+  const { uiStore } = useStore();
 
   useEffect(() => {
-    guidesStore.loadGuides();
-  }, [guidesStore]);
+    uiStore.loadGuides();
+  }, [uiStore]);
 
-  return <MasterPage>Guids page</MasterPage>;
+  return (
+    <MasterPage>
+      {uiStore.guides.map(g => (
+        <div style={{ margin: "0 16px 12px 16px" }}>
+          <GuidCard {...g}></GuidCard>
+        </div>
+      ))}
+    </MasterPage>
+  );
 });
