@@ -9,6 +9,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import IconButton from "@material-ui/core/IconButton";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ChatIcon from "images/svg/Chat.svg";
+import Fab from "@material-ui/core/Fab";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,12 +36,22 @@ export default function RecipeReviewCard({
 
   return (
     <Card className={classes.card}>
+      <div style={{ position: "absolute", zIndex: 2, top: "165px", right: 0 }}>
+        <CardActions>
+          <Fab size="small" style={{ backgroundColor: "#FFFFFF" }}>
+            <IconButton aria-label="add to favorites">
+              <BookmarkIcon />
+            </IconButton>
+          </Fab>
+          <Fab size="small" style={{ backgroundColor: "#FFFFFF" }}>
+            <IconButton aria-label="share">
+              <img alt="Chat icon" src={ChatIcon}></img>
+            </IconButton>
+          </Fab>
+        </CardActions>
+      </div>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={imgSrc}
-          title="Paella dish"
-        />
+        <CardMedia className={classes.media} image={imgSrc} title="" />
         <CardHeader title={`${fullName}, ${price}$`} subheader={description} />
       </CardActionArea>
       <CardContent>
@@ -49,16 +60,6 @@ export default function RecipeReviewCard({
         </Typography> */}
         rate to be here
       </CardContent>
-      <div style={{ position: "absolute" }}>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <BookmarkIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <img alt="Chat icon" src={ChatIcon}></img>
-          </IconButton>
-        </CardActions>
-      </div>
     </Card>
   );
 }

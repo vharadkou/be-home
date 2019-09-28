@@ -23,7 +23,8 @@ const Guides = observer(({ children }) => {
           height: "56px",
           left: 0,
           position: "fixed",
-          right: 0
+          right: 0,
+          zIndex: 5
         }}
       >
         <NavigationMenu />
