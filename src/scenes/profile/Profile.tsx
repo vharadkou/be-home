@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { makeStyles } from '@material-ui/core/styles';
 import Switch from '@material-ui/core/Switch';
@@ -18,8 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
   firstBlock: {
     height: '50%',
-    backgroundColor: '#512DA8'
-
+    backgroundColor: '#512DA8',
   },
   secondBlock: {
     height: '50%',
@@ -28,7 +27,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-
   },
   header: {
     position: 'relative',
@@ -43,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
     width: '178px',
     height: '171px',
-    borderRadius: '50%'
+    borderRadius: '50%',
   },
   nameProfile: {
     marginTop: '50px',
@@ -68,10 +66,9 @@ const useStyles = makeStyles(theme => ({
   list: {
     backgroundColor: 'white',
   },
-  logout:{
-    color: '#F5536B'
-  }
-
+  logout: {
+    color: '#F5536B',
+  },
 }));
 
 export const Profile = observer(() => {
@@ -85,26 +82,26 @@ export const Profile = observer(() => {
   return (
     <React.Fragment>
       <div className={classes.header}>
-        <div className={classes.firstBlock}>
-
-        </div>
+        <div className={classes.firstBlock}></div>
         <div className={classes.secondBlock}>
           <span className={classes.nameProfile}>Антон Марозов</span>
-          <div className={classes.wantGid} >
+          <div className={classes.wantGid}>
             <Switch color="primary" />
             <span>Хочу быть гидом</span>
           </div>
         </div>
-        <div className={classes.avatar}>
-        </div>
+        <div className={classes.avatar}></div>
       </div>
       <List component="nav" aria-label="main mailbox folders">
         <ListItem className={classes.list} button onClick={onClickLogout}>
           <ListItemIcon>
-            <MeetingRoomIcon color="secondary"/>
+            <MeetingRoomIcon color="secondary" />
           </ListItemIcon>
 
-          <ListItemText className={classes.logout} primary="Выйти из аккаунта" />
+          <ListItemText
+            className={classes.logout}
+            primary="Выйти из аккаунта"
+          />
         </ListItem>
       </List>
     </React.Fragment>
