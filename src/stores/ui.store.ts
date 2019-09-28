@@ -1,12 +1,12 @@
-import { action, configure, observable, runInAction } from "mobx";
+import { action, configure, observable, runInAction } from 'mobx';
 
-import AliceImage from 'images/guide/Alice.jpg'
-import DmitryImage from 'images/guide/Dmitry.jpg'
+import AliceImage from 'images/guide/Alice.jpg';
+import DmitryImage from 'images/guide/Dmitry.jpg';
 
-configure({ enforceActions: "always" });
+configure({ enforceActions: 'always' });
 
 export class UiStore {
-  @observable public isFilterOpen: boolean = true;
+  @observable public isFilterOpen: boolean = false;
 
   @observable public isMasterPageLoading: boolean = false;
 
@@ -29,8 +29,8 @@ export class UiStore {
           this.guides = [
             {
               id: 1,
-              fullName: "Алеся Костюшко",
-              description: "Покажу вам все свои дырки",
+              fullName: 'Алеся Костюшко',
+              description: 'Покажу вам все свои дырки',
               price: 0,
               rate: 4,
               reviewCount: 6,
@@ -38,17 +38,17 @@ export class UiStore {
             },
             {
               id: 2,
-              fullName: "Дмитрий Панковский",
-              description: "Вы останитесь довольны мной",
+              fullName: 'Дмитрий Панковский',
+              description: 'Вы останитесь довольны мной',
               price: 0,
               rate: 5,
               reviewCount: 10,
               imgSrc: DmitryImage,
-            }
+            },
           ];
           this.isMasterPageLoading = false;
         }),
-      2000
+      2000,
     );
   };
   // #endregion guieds
