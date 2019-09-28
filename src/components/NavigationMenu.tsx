@@ -16,6 +16,9 @@ const useStyles = makeStyles({
     top: 'auto',
     bottom: 0,
   },
+  item: {
+    color: 'black',
+  },
 });
 
 export function NavigationMenu() {
@@ -35,21 +38,25 @@ export function NavigationMenu() {
         style={{ zIndex: 5 }}
       >
         <BottomNavigationAction
+          className={classes.item}
           label="Гиды"
           value="guide"
           icon={<SupervisorAccountIcon />}
         />
         <BottomNavigationAction
+          className={classes.item}
           label="Закладки"
           value="bookmarks"
           icon={<FavoriteIcon />}
         />
         <BottomNavigationAction
+          className={classes.item}
           label="События"
           value="events"
           icon={<LocationOnIcon />}
         />
         <BottomNavigationAction
+          className={classes.item}
           label="Профиль"
           value="profile"
           icon={<FolderIcon />}

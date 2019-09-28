@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const TopBar = () => {
   const classes = useStyles();
-  const { uiStore } = useStore();
+  const { uiStore, authStore } = useStore();
 
   return (
     <AppBar position="fixed">
@@ -54,7 +54,11 @@ export const TopBar = () => {
         >
           <Avatar className={classes.controls} alt="Controls" src={Controls} />
         </IconButton>
-        <IconButton aria-label="show 4 new mails" color="inherit">
+        <IconButton
+          aria-label="show 4 new mails"
+          color="inherit"
+          onClick={authStore.logout}
+        >
           <MailIcon />
         </IconButton>
         <Filter />

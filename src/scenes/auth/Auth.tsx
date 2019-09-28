@@ -21,10 +21,10 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     height: '100%',
-    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   form: {
     width: '100%',
