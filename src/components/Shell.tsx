@@ -26,7 +26,6 @@ export const Shell = memo(({ children }) => {
       <TopBar />
       <Container className={classes.content} fixed>
         <div className={classes.toolbar} />
-        <div className={classes.toolbar} />
         {children}
         <div className={classes.toolbar} />
       </Container>

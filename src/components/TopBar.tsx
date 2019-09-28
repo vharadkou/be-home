@@ -21,14 +21,16 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
+      display: 'flex',
+      alignItems: 'center',
     },
     circle: {
       width: 24,
       height: 24,
     },
     controls: {
-      width: 24,
-      height: 24,
+      width: 20,
+      height: 20,
       borderRadius: 0,
     },
   }),
@@ -40,17 +42,9 @@ export const TopBar = () => {
 
   return (
     <AppBar position="fixed">
-      <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-          Выбор гида
-        </Typography>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <MailIcon />
-        </IconButton>
-      </Toolbar>
-      <Toolbar variant="dense">
-        <Avatar className={classes.circle} alt="Near Me" src={NearMe} />
+      <Toolbar variant="regular">
         <Typography variant="body2" className={classes.title}>
+          <Avatar className={classes.circle} alt="Near Me" src={NearMe} />
           Могилев, Беларусь
         </Typography>
         <IconButton
@@ -59,6 +53,9 @@ export const TopBar = () => {
           onClick={uiStore.openFilter}
         >
           <Avatar className={classes.controls} alt="Controls" src={Controls} />
+        </IconButton>
+        <IconButton aria-label="show 4 new mails" color="inherit">
+          <MailIcon />
         </IconButton>
         <Filter />
       </Toolbar>
