@@ -9,10 +9,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import HowToRegIcon from '@material-ui/icons/HowToReg';
 import authLogo from 'images/png/logoAuth.png';
 import FormControl from '@material-ui/core/FormControl';
-import facebookIcon from 'images/svg/facebookIcon.svg';
 import gmailIcon from 'images/svg/gmailIcon.svg';
 
 const useStyles = makeStyles(theme => ({
@@ -42,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     position: 'fixed',
     top: 'auto',
     bottom: 0,
-    marginBottom: '27.5px'
+    marginBottom: '27.5px',
   },
   iconMargin: {
     marginRight: '5px',
@@ -72,14 +70,12 @@ const useStyles = makeStyles(theme => ({
     color: '#707070',
     lineHeight: '24px',
   },
-
 }));
 
 export const Auth = observer(() => {
   const { authStore } = useStore();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-
 
   const classes = useStyles();
 
@@ -88,11 +84,11 @@ export const Auth = observer(() => {
   };
 
   const onChangeLogin = (event: any) => {
-    setLogin(event.target.value)
-  }
+    setLogin(event.target.value);
+  };
   const onChangePassword = (event: any) => {
-    setPassword(event.target.value)
-  }
+    setPassword(event.target.value);
+  };
   const onClickGmailIcon = async () => {
     await authStore.loginGmail();
   };
@@ -106,10 +102,10 @@ export const Auth = observer(() => {
 
           <Typography className={classes.textWelcome}>
             Добро пожаловать
-        </Typography>
+          </Typography>
           <Typography className={classes.textFind}>
             Поиск гида в путешествиях
-        </Typography>
+          </Typography>
           <FormControl className={classes.form}>
             <TextField
               variant="outlined"
@@ -152,20 +148,16 @@ export const Auth = observer(() => {
               className={classes.submit}
             >
               Войти
-          </Button>
+            </Button>
           </FormControl>
           <div>
-            <span className={classes.textAuth}>
-              Войти с помощью
-            </span>
+            <span className={classes.textAuth}>Войти с помощью</span>
             <div className={classes.socialAuth}>
               <img src={gmailIcon} alt="" onClick={onClickGmailIcon} />
             </div>
-
           </div>
         </div>
       </Container>
-
     </React.Fragment>
   );
 });
