@@ -97,12 +97,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const marks = [
   {
-    value: 0,
-    label: '$0',
+    value: 18,
+    label: '18',
   },
   {
-    value: 100,
-    label: '$100',
+    value: 50,
+    label: '50+',
   },
 ];
 
@@ -129,7 +129,7 @@ export const Filter = observer(() => {
   const [location, setLocation] = useState('Могилев, Беларусь');
 
   const handleClose = () => {
-    // uiStore.closeFilter();
+    uiStore.closeFilter();
   };
 
   const handleLocationChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -187,7 +187,7 @@ export const Filter = observer(() => {
           />
           <Divider />
           <Typography className={classes.price} gutterBottom>
-            Цена
+            Возраст
           </Typography>
           <Slider
             value={value}
@@ -199,6 +199,8 @@ export const Filter = observer(() => {
             valueLabelDisplay="auto"
             marks={marks}
             classes={{ marked: classes.sliderMarked }}
+            min={18}
+            max={50}
           />
           <Divider className={classes.divider} />
           <Typography className={classes.price} gutterBottom>
@@ -248,6 +250,7 @@ export const Filter = observer(() => {
           </Box>
         </Box>
         <Button
+          onClick={handleClose}
           className={classes.appBarBottom}
           color="primary"
           variant="contained"
