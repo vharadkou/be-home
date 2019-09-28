@@ -167,6 +167,5 @@ export const Auth = observer(() => {
       </Container>
 
     </React.Fragment>
-
   );
 });

@@ -7,6 +7,15 @@ import { useStore } from 'stores';
 import { createBrowserHistory } from 'history';
 import { syncHistoryWithStore } from 'mobx-react-router';
 import { observer } from 'mobx-react-lite';
+import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { TopBar } from 'components/TopBar';
+import { NavigationMenu } from 'components/NavigationMenu';
+import { Shell } from 'components/Shell';
+
+const theme = createMuiTheme({
+  palette: { primary: { main: '#673AB7' } },
+});
 
 const browserHistory = createBrowserHistory();
 
@@ -25,20 +34,24 @@ const App = observer(() => {
   );
 
   return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/" render={() => <Redirect to={'/auth'} />} />
-        <Route exact path="/auth" component={Auth} />
-        <ProtectedRoute
-          isLoggedIn={authStore.isLoggedIn}
-          path="/guides"
-          component={Guides}
-          exact
-          public={false}
-        />
-        <Redirect to={'/'} />
-      </Switch>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router history={history}>
+        <Shell>
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to={'/auth'} />} />
+            <Route exact path="/auth" component={Auth} />
+            <ProtectedRoute
+              isLoggedIn={authStore.isLoggedIn}
+              path="/guides"
+              component={Guides}
+              exact
+              public={false}
+            />
+            <Redirect to={'/'} />
+          </Switch>
+        </Shell>
+      </Router>
+    </ThemeProvider>
   );
 });
 
